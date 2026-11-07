@@ -10,3 +10,14 @@ Interactive study page for the Engineering Management course (Dr. Ammar Muslim H
 - Printable PDF version: [Engineering_Management_Exam_Bank.pdf](Engineering_Management_Exam_Bank.pdf)
 
 All questions are drawn from the lecture files only.
+
+## Study repo layout
+
+| Folder | Contents |
+|---|---|
+| `sources/` | Same sources uploaded to NotebookLM, one folder per course |
+| `notes/` | Claude's analysis of each source; `notes/whats-new.md` logs what was added |
+| `projects/` | Educational games and quiz pages, each published at `/projects/<name>/` |
+
+### Projects
+_(none yet)_
