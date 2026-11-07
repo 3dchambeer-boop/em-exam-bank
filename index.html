@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Engineering Management – Theory Exam Bank</title>
+<style>
+:root{
+  --bg:#f6f7fb;--panel:#ffffff;--ink:#1d2433;--muted:#667085;--line:#e4e7ee;
+  --brand:#2f5bea;--brand-soft:#e9efff;--star:#f2a900;--ok:#16a34a;--ok-soft:#e7f7ec;
+  --shadow:0 1px 2px rgba(16,24,40,.05),0 4px 16px rgba(16,24,40,.06);
+  --c0:#7c3aed;--c1:#2f5bea;--c2:#0891b2;--c3:#d97706;--c4:#db2777;--c5:#16a34a;
+}
+[data-theme="dark"]{
+  --bg:#0f1420;--panel:#171d2b;--ink:#e7eaf2;--muted:#98a2b3;--line:#273044;
+  --brand:#7b9bff;--brand-soft:#1f2a47;--ok-soft:#14301f;--shadow:none;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:16px}
+.ar{font-family:"Segoe UI",Tahoma,"Noto Naskh Arabic",Arial,sans-serif;direction:rtl}
+header{position:sticky;top:0;z-index:20;background:var(--panel);border-bottom:1px solid var(--line)}
+.top{max-width:1200px;margin:auto;display:flex;align-items:center;gap:14px;padding:12px 20px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:17px}
+.logo .mark{width:34px;height:34px;border-radius:9px;background:var(--brand);color:#fff;display:grid;place-items:center;font-size:15px}
+.logo small{display:block;font-weight:500;color:var(--muted);font-size:12px}
+.search{flex:1;min-width:200px;position:relative}
+.search input{width:100%;padding:10px 14px 10px 38px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font-size:15px;outline:none}
+.search input:focus{border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-soft)}
+.search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);opacity:.5}
+.btn{border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:9px 13px;border-radius:10px;cursor:pointer;font-size:14px;font-weight:600;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.btn:hover{border-color:var(--brand);color:var(--brand)}
+.btn.on{background:var(--brand);border-color:var(--brand);color:#fff}
+.progress-wrap{max-width:1200px;margin:auto;padding:0 20px 10px;display:flex;align-items:center;gap:12px;font-size:13px;color:var(--muted)}
+.bar{flex:1;height:8px;background:var(--line);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--brand),var(--ok));width:0;transition:width .4s}
+.layout{max-width:1200px;margin:auto;display:grid;grid-template-columns:270px 1fr;gap:24px;padding:24px 20px 80px}
+aside{position:sticky;top:120px;align-self:start}
+.nav{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:10px;box-shadow:var(--shadow)}
+.nav button{width:100%;text-align:left;border:0;background:none;color:var(--ink);padding:10px 12px;border-radius:10px;cursor:pointer;display:flex;align-items:center;gap:10px;font-size:14.5px}
+.nav button:hover{background:var(--bg)}
+.nav button.active{background:var(--brand-soft);color:var(--brand);font-weight:700}
+.nav .dot{width:10px;height:10px;border-radius:50%;flex:none}
+.nav .count{margin-left:auto;font-size:12px;color:var(--muted);background:var(--bg);padding:1px 8px;border-radius:99px}
+.side-box{margin-top:14px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:var(--shadow);font-size:13.5px}
+.side-box h4{margin:0 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.side-box .filters{display:flex;flex-wrap:wrap;gap:6px}
+.side-box .filters .btn{padding:6px 10px;font-size:13px}
+.keynums{list-style:none;margin:0;padding:0}
+.keynums li{display:flex;justify-content:space-between;gap:8px;padding:6px 0;border-bottom:1px dashed var(--line)}
+.keynums li:last-child{border:0}
+.keynums b{color:var(--brand)}
+main{min-width:0}
+.hero{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px 24px;box-shadow:var(--shadow);margin-bottom:22px}
+.hero h1{margin:0 0 6px;font-size:24px}
+.hero p{margin:0;color:var(--muted)}
+.hero .ar{margin-top:10px;color:var(--ink);font-size:15px}
+.tips{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-top:16px}
+.tip{background:var(--bg);border-radius:12px;padding:12px;font-size:13.5px}
+.tip b{display:block;font-size:20px;color:var(--brand)}
+.chapter{margin-bottom:34px;scroll-margin-top:130px}
+.ch-head{display:flex;align-items:center;gap:12px;margin:0 0 6px}
+.ch-badge{color:#fff;font-weight:700;border-radius:10px;padding:5px 11px;font-size:13px}
+.ch-head h2{margin:0;font-size:21px}
+.ch-sub{color:var(--muted);margin:0 0 14px;font-size:14px}
+.sub-title{margin:22px 0 10px;font-size:15px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;display:flex;align-items:center;gap:10px}
+.sub-title:after{content:"";flex:1;height:1px;background:var(--line)}
+.card{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--accent,var(--brand));border-radius:14px;margin-bottom:12px;box-shadow:var(--shadow);transition:border-color .2s}
+.card.done{background:linear-gradient(0deg,var(--ok-soft),var(--ok-soft)) , var(--panel)}
+.q{display:flex;gap:12px;align-items:flex-start;padding:15px 16px;cursor:pointer;user-select:none}
+.qn{flex:none;font-weight:700;font-size:13px;color:var(--accent);background:var(--bg);border-radius:8px;padding:3px 8px;margin-top:1px}
+.qt{flex:1;font-weight:650;font-size:16px}
+.star{color:var(--star);font-size:15px;margin-left:4px}
+.chev{flex:none;transition:transform .25s;opacity:.55;margin-top:3px}
+.card.open .chev{transform:rotate(180deg)}
+.a{display:none;padding:0 18px 16px 18px;border-top:1px dashed var(--line)}
+.card.open .a{display:block;animation:fade .25s}
+@keyframes fade{from{opacity:0;transform:translateY(-4px)}to{opacity:1}}
+.a p{margin:12px 0 6px}
+.a ol,.a ul{margin:8px 0;padding-left:22px}
+.a li{margin:4px 0}
+.a b{color:var(--ink)}
+.a .def{background:var(--brand-soft);border-radius:10px;padding:10px 12px;margin-top:12px}
+.a .note{font-size:14px;color:var(--muted)}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14.5px;overflow:hidden;border-radius:10px}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--bg);font-weight:700}
+.tbl{overflow-x:auto}
+.a-foot{display:flex;justify-content:flex-end;gap:8px;margin-top:10px}
+.know{font-size:13px;padding:6px 11px}
+.card.done .know{background:var(--ok);border-color:var(--ok);color:#fff}
+.hidden{display:none!important}
+.empty{text-align:center;color:var(--muted);padding:40px;background:var(--panel);border-radius:14px;border:1px dashed var(--line)}
+mark{background:#ffe58a;color:inherit;border-radius:3px;padding:0 2px}
+/* Quiz */
+.quiz{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:var(--shadow);margin-bottom:12px}
+.quiz .stmt{font-weight:650;margin-bottom:10px}
+.quiz .opts{display:flex;gap:8px;flex-wrap:wrap}
+.quiz .fb{margin-top:10px;font-size:14.5px;display:none;border-radius:10px;padding:10px 12px}
+.quiz .fb.right{display:block;background:var(--ok-soft)}
+.quiz .fb.wrong{display:block;background:#fde8e8;color:#7a1c1c}
+[data-theme="dark"] .quiz .fb.wrong{background:#3a1d1d;color:#ffc9c9}
+.score{font-weight:700;color:var(--brand)}
+.fill-row{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:center;padding:12px 14px;border-bottom:1px solid var(--line)}
+.fill-row:last-child{border:0}
+.fill-ans{font-weight:700;color:var(--ok);display:none}
+.fill-row.show .fill-ans{display:inline}
+.fill-row.show .reveal{display:none}
+.toTop{position:fixed;right:20px;bottom:20px;width:44px;height:44px;border-radius:50%;border:0;background:var(--brand);color:#fff;font-size:20px;cursor:pointer;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.2s}
+.toTop.show{opacity:1;pointer-events:auto}
+.modal{position:fixed;inset:0;background:rgba(10,14,25,.55);display:none;align-items:center;justify-content:center;z-index:50;padding:20px}
+.modal.show{display:flex}
+.modal .box{background:var(--panel);border-radius:16px;max-width:720px;width:100%;max-height:85vh;overflow:auto;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.modal .box h3{margin:6px 0 12px;font-size:19px}
+.modal .meta{font-size:13px;color:var(--muted)}
+.modal .row{display:flex;gap:8px;justify-content:flex-end;margin-top:16px;flex-wrap:wrap}
+.modal .ans{display:none;border-top:1px dashed var(--line);margin-top:10px}
+.modal .ans.show{display:block}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr}
+  aside{position:static}
+  .nav{display:flex;overflow-x:auto;gap:4px}
+  .nav button{white-space:nowrap;width:auto}
+  .nav .count{display:none}
+}
+@media print{
+  header,aside,.toTop,.a-foot,.quiz .opts{display:none!important}
+  .layout{display:block;padding:0}
+  .a{display:block!important}
+  .card{break-inside:avoid;box-shadow:none}
+  body{background:#fff}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="top">
+    <div class="logo"><div class="mark">EM</div><div>Engineering Management<small>Theory Exam Bank · Dr. Ammar Muslim Hadi</small></div></div>
+    <div class="search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Search questions & answers…  (e.g. break-even, Taylor, Hungarian)">
+    </div>
+    <button class="btn" id="expandAll" title="Show / hide all answers">👁 Show all</button>
+    <button class="btn" id="randomBtn" title="Random question">🎲 Random</button>
+    <button class="btn" id="themeBtn" title="Dark mode">🌙</button>
+  </div>
+  <div class="progress-wrap"><span id="progTxt">0 / 0 mastered</span><div class="bar"><i id="progBar"></i></div><button class="btn know" id="resetBtn" style="padding:4px 10px;font-size:12px">Reset</button></div>
+</header>
+
+<div class="layout">
+  <aside>
+    <nav class="nav" id="nav"></nav>
+    <div class="side-box">
+      <h4>Filter</h4>
+      <div class="filters">
+        <button class="btn on" data-f="all">All</button>
+        <button class="btn" data-f="star">★ Important</button>
+        <button class="btn" data-f="todo">Not mastered</button>
+      </div>
+    </div>
+    <div class="side-box">
+      <h4>Key numbers to memorise</h4>
+      <ul class="keynums">
+        <li><span>Profitability</span><b>&gt; 25%</b></li>
+        <li><span>Payback period</span><b>&lt; 4 years</b></li>
+        <li><span>Allowances</span><b>≤ 15%</b></li>
+        <li><span>Time efficiency</span><b>T / T2 = 1</b></li>
+        <li><span>Basic cells</span><b>m + n − 1</b></li>
+        <li><span>Assignment</span><b>n = m</b></li>
+        <li><span>Therbligs</span><b>17 motions</b></li>
+        <li><span>Steam engine</span><b>1775</b></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main id="main">
+    <section class="hero">
+      <h1>Theory Exam Question Bank</h1>
+      <p>Every question comes from the lecture files only: Introduction, Chapters 1–4 and the Russell example. Click a question to reveal its answer, then mark it <b>“I know it”</b> to track your progress.</p>
+      <p class="ar">اضغط على السؤال لإظهار الجواب، وعلّم على "I know it" عندما تحفظه. الأسئلة المعلّمة بنجمة ★ هي الأهم.</p>
+      <div class="tips">
+        <div class="tip"><b id="totalQ">0</b>essay questions</div>
+        <div class="tip"><b id="starQ">0</b>★ high-priority</div>
+        <div class="tip"><b>30</b>quick-drill items</div>
+        <div class="tip"><b>Points</b>write answers as numbered points</div>
+      </div>
+    </section>
+    <div id="content"></div>
+    <div id="noRes" class="empty hidden">No questions match your search.</div>
+  </main>
+</div>
+
+<button class="toTop" id="toTop" title="Back to top">↑</button>
+
+<div class="modal" id="modal">
+  <div class="box">
+    <div class="meta" id="mMeta"></div>
+    <h3 id="mQ"></h3>
+    <div class="ans a" id="mA" style="padding:0"></div>
+    <div class="row">
+      <button class="btn" id="mShow">Show answer</button>
+      <button class="btn" id="mNext">Next random 🎲</button>
+      <button class="btn" id="mClose">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------- tiny builders ---------- */
+const ol = a => "<ol>" + a.map(x => "<li>" + x + "</li>").join("") + "</ol>";
+const ul = a => "<ul>" + a.map(x => "<li>" + x + "</li>").join("") + "</ul>";
+const p  = x => "<p>" + x + "</p>";
+const def= x => '<div class="def">' + x + "</div>";
+const tb = (h, rows) => '<div class="tbl"><table><thead><tr>' + h.map(x => "<th>" + x + "</th>").join("") +
+  "</tr></thead><tbody>" + rows.map(r => "<tr>" + r.map(c => "<td>" + c + "</td>").join("") + "</tr>").join("") + "</tbody></table></div>";
+
+/* ---------- DATA ---------- */
+const CH = [
+{ id:"intro", tag:"Intro", color:"var(--c0)", title:"Introduction to Engineering Management", sub:"Why engineering alone is not enough",
+  groups:[{ name:"", qs:[
+  { q:"What lesson does the Motorola Iridium project teach engineering managers?", s:1,
+    a: p("Iridium was a technological marvel: <b>66 satellites</b> gave total global coverage. Commercially it failed: the phones were heavy and the cost per minute was very high, so the company went <b>bankrupt in less than a year</b> (a $5 billion lesson).") +
+       def("<b>Lesson:</b> the best technology rarely wins. Engineering alone is not enough; the engineer must also master <b>the factory, the market and the financials</b>.") },
+  { q:"What is the aim of Engineering Management as a course?",
+    a: def("To <b>bridge the gap between technical design and commercial reality</b>, so that a technically good product is also produced efficiently and sold profitably.") },
+  { q:"Which tool is used to find the best product mix in a factory with limited resources? Explain with an example.",
+    a: p("<b>Operations Research</b> (linear programming).") + p("Example: a factory makes two types of 5G antennas with limited machine hours, substrate and labour. Operations Research calculates the <b>exact ratio</b> of the two products that gives <b>maximum profit</b>, with no guessing.") },
+  { q:"List the two blocks of the course and the topics of each.",
+    a: ol(["<b>Block 1 – The Perfect Factory</b> (classical industrial engineering): Operations Research, feasibility studies, linear programming & Simplex method, time and motion (work) study, plant layout, quality control.",
+           "<b>Block 2 – The Startup Venture</b> (modern technology management): Lean Startup & MVP, capital budgeting (NPV, IRR, make-vs-buy), financial accounting, unit economics, project management (CPM & Agile)."]) }
+  ]}]},
+
+{ id:"ch1", tag:"Ch 1", color:"var(--c1)", title:"Concepts and Objectives of Industrial Engineering", sub:"Definition, history, pioneers and modern characteristics",
+  groups:[{ name:"", qs:[
+  { q:"Define Industrial Engineering.", s:1,
+    a: def("Industrial Engineering is <b>the body of knowledge and sciences that coordinates raw material properties, available machine capacity and labour effort</b>, in order to <b>minimise resource waste</b> and <b>improve labour productivity</b>.") },
+  { q:"What are the core objectives of an industrial enterprise?", s:1,
+    a: ol(["Produce goods in the <b>required quantities</b>.","Maintain the specified <b>quality standards</b>.","Achieve this output at the <b>minimum possible cost</b>."]) },
+  { q:"Why must industrial engineering keep evolving? (Introduction and significance)",
+    a: ol(["Rapid technology has changed production machinery in <b>automation level, precision and capacity</b>.",
+           "Manufacturing methods, labour skills and production management must evolve <b>in parallel</b> to use machine capacity fully, raise output, improve quality and lower cost.",
+           "Industrial engineering must stay <b>dynamic</b> and apply <b>quantitative methods</b> to prevent waste of capacity, raw materials and manpower."]) },
+  { q:"Describe the three historical stages of machine automation and industrial engineering.", s:1,
+    a: ol(["<b>Pre-Industrial Revolution era:</b> manual production in small factories and home workshops; no competition because volumes and demand were low (low living standards); owners managed design, operations and pricing by <b>trial and error</b>, with no standard systems.",
+           "<b>Industrial Revolution era</b> (from James Watt's steam engine, <b>1775</b>): production moved from homes to factories, creating problems of wages & productivity, safety, expansion and competition – solved by work study, safety rules, feasibility studies, cost accounting, quality control, etc.",
+           "<b>Technological Revolution era</b> (after <b>1945</b>): Operations Research moved from military to industrial and service sectors, enabled by <b>electronic computers</b>."]) },
+  { q:"What problems did the Industrial Revolution create, and how was each solved?", s:1,
+    a: tb(["Problem","Solution"],[
+      ["<b>Wages & productivity</b> – machines raised output without equal worker effort → wage disputes","<b>Work Study</b> (Motion & Time Study) to set standard times and incentive schemes"],
+      ["<b>Workplace safety</b> – more accidents","Vocational training departments, industrial safety rules, injury compensation"],
+      ["<b>Factory expansion & scale</b>","Technical & economic feasibility studies, organisational structure, scientific planning & control"],
+      ["<b>Intense market competition</b>","Cost accounting, productivity measurement, inventory control, material handling, quality control"]]) },
+  { q:"State the contribution of each pioneer of industrial engineering.", s:1,
+    a: tb(["Pioneer","Year","Contribution"],[
+      ["Adam Smith","1776","Division of Labour"],
+      ["Charles Babbage","1832","Skill Specialisation – linking skill level to wages"],
+      ["Henry Towne","1886","Statistical data analysis (Scientific Management approach)"],
+      ["Frederick W. Taylor","1911","<i>Principles of Scientific Management</i>; reward / penalty incentives"],
+      ["Henry Gantt","1913","Gantt Chart for production planning & control"],
+      ["Henri Fayol","1916","Five management functions"],
+      ["Frank Gilbreth","1922","Photography; 17 fundamental motions (Therbligs)"],
+      ["Oliver Sheldon","1923","Human resource development by continuous training"],
+      ["Harry Hopf","1935","Mathematical models – “Optimization Science”"],
+      ["Mayo, Follett, Maslow","–","Human relations, leadership, hierarchy of needs"],
+      ["Operations Research teams","1939–1945","Maximising military industrial productivity in WWII"]]) },
+  { q:"What are Fayol's five management functions?", s:1,
+    a: ol(["Planning","Organizing","Directing","Coordinating","Controlling"]) },
+  { q:"What are Therbligs?",
+    a: def("The <b>17 fundamental motions</b> into which <b>Frank Gilbreth (1922)</b> divided human work, using <b>photography</b>, in order to remove unnecessary motions and raise efficiency.") },
+  { q:"List the Operations Research techniques of the Technological Revolution era.", s:1,
+    a: ol(["<b>Quantitative methods:</b> Linear Programming (resource allocation, transport planning), Dynamic Programming, Sequencing.",
+           "<b>Theories:</b> Decision Theory, Game Theory, Queuing Theory.",
+           "<b>Analyses:</b> Network Analysis (PERT/CPM), Input-Output Analysis, Markov Analysis, Benefit-Cost Analysis.",
+           "<b>Models:</b> Transportation, Inventory and Replacement models."]) },
+  { q:"State the characteristics of modern industrial engineering.", s:1,
+    a: ol(["<b>Specialisation:</b> the plant focuses on a single product or a narrow range of similar products.",
+           "<b>Automation:</b> heavy use of automated machines to reduce manual/mental strain, improve accuracy, save materials and raise output.",
+           "<b>Scientific approach:</b> scientific methods and Operations Research for planning, execution and evaluation.",
+           "<b>Systems perspective:</b> systems analysis to optimise the basic inputs – <b>Materials, Machines and Labour</b>."]) },
+  { q:"Define briefly: feasibility study, standard time, work study, division of labour, optimization science, queuing theory, inventory models, replacement models.",
+    a: ul(["<b>Feasibility study:</b> technical & economic study to judge a project's success before it starts.",
+           "<b>Standard time:</b> the scientifically set time to produce one unit.",
+           "<b>Work study:</b> motion and time study to raise performance efficiency.",
+           "<b>Division of labour:</b> splitting a manufacturing process into simple successive steps.",
+           "<b>Optimization science:</b> using mathematics to reach the best option (max profit / min cost).",
+           "<b>Queuing theory:</b> calculates service and waiting times to give the best service at least cost.",
+           "<b>Inventory models:</b> find the economic order quantity and safety stock.",
+           "<b>Replacement models:</b> find the best time to replace machines to reduce maintenance cost."]) }
+  ]}]},
+
+{ id:"ch2", tag:"Ch 2", color:"var(--c2)", title:"Feasibility, Costs, Break-Even, Productivity & Work Study", sub:"The economics of a project and the efficiency of the work",
+  groups:[
+  { name:"A · Feasibility studies", qs:[
+  { q:"What is the primary objective of a feasibility study? Why is it needed?", s:1,
+    a: def("<b>To make the appropriate decision regarding the establishment of any project.</b>") + p("Before launching an industrial project, a comprehensive <b>technical and economic study</b> is needed to ensure the project is viable, can succeed and can achieve its targets.") },
+  { q:"Compare the aim of feasibility studies in the public and private sectors.", s:1,
+    a: tb(["Public (developmental) sector","Private sector"],[["Boost national income, raise individual income levels, adjust the socio-economic balance","Maximise net financial profit"]]) },
+  { q:"List the main requirements for feasibility calculations and evaluation.", s:1,
+    a: ol(["Expected demand & production capacity.","Brief description of production stages.","Invested (fixed) capital – machinery, equipment, spare parts, buildings & facilities.","Operating (working / variable) capital – raw materials, wages, industrial overheads (electricity, water, fuel).","Total production costs = Fixed costs + Variable costs.","Annual profit = Total sales value − Total production cost.","Value added (gross and net).","Project profitability."]) },
+  { q:"Differentiate between invested (fixed) capital and operating (working) capital.",
+    a: tb(["Invested (fixed) capital","Operating (working) capital"],[["Long-term assets that create capacity","Money to run production each year"],["Machinery & equipment, spare parts, buildings & facilities","Raw materials, labour wages, industrial overheads (water, electricity, fuel)"]]) },
+  { q:"Define Gross Value Added and Net Value Added.", s:1,
+    a: ul(["<b>Gross Value Added</b> = Wages & Social Security + Depreciation + Interest & Insurance + Profits.","<b>Net Value Added</b> = Gross Value Added − Depreciation."]) },
+  { q:"List the indicators used to evaluate the economic feasibility of a project, and state the feasibility criterion.", s:1,
+    a: ol(["Sales & profits","Value added","Project profitability","Break-even point","Margin of safety","Payback period"]) +
+       def("<b>Criterion:</b> a project is economically viable if its <b>profitability &gt; 25%</b> and its <b>payback period &lt; 4 years</b>.") },
+  { q:"What items make up the fixed costs in a feasibility study (with their usual rates)?",
+    a: tb(["Item","Rate (per year)"],[["Machinery depreciation","10% of machinery value"],["Machinery maintenance","5%"],["Buildings depreciation","5% of buildings value"],["Buildings maintenance","2%"],["Machinery fire insurance","0.5%"],["Interest on fixed capital","8%"]]) }
+  ]},
+  { name:"B · Production costs & break-even", qs:[
+  { q:"What are the main elements of production cost?", s:1,
+    a: ol(["<b>Materials:</b> raw, basic and complementary materials, packaging, shipping & transport.","<b>Labour (wages):</b> value of work done by employees in production and related services.","<b>Expenses (overhead):</b> services such as maintenance, advertising, technical consulting, plus non-cash items like depreciation."]) },
+  { q:"Classify costs (a) by relation to the unit of production and (b) by relation to production volume. Give examples.", s:1,
+    a: tb(["Classification","Type","Example"],[
+      ["By unit of production","<b>Direct</b> – linked to one specific product","Direct materials"],
+      ["","<b>Indirect</b> – shared by several products","Factory security wages, plant rent"],
+      ["By production volume","<b>Fixed</b> – create capacity, do not change with volume","Admin salaries, insurance, depreciation"],
+      ["","<b>Variable</b> – change directly with volume","Raw materials, production-line wages, fuel"]]) },
+  { q:"Define the Break-Even Point. What decisions does it help management make?", s:1,
+    a: def("The Break-Even Point is the point at which <b>Total Revenue = Total Cost</b> (zero profit, zero loss). On the chart it is the intersection of the total-cost line with the total-revenue line.") +
+       p("It helps decide on:") + ol(["Increasing production","Decreasing production","Changing the production pattern / mix","Optimising capacity utilisation"]) },
+  { q:"State the limitations of break-even analysis.", s:1,
+    a: ol(["Assumes a <b>linear profit function</b> – inaccurate with advanced automated machines that lower unit cost.","Assumes <b>constant selling prices</b>.","Must be <b>recalculated</b> whenever raw-material prices or wage levels change."]) },
+  { q:"What is the Margin of Safety and why is it calculated?",
+    a: p("The Margin of Safety shows how far actual sales are <b>above break-even sales</b>, as a percentage.") + p("It is calculated to choose the best production policies and judge the factory's ability to adapt to changing operating conditions – a higher margin means lower risk of loss.") },
+  { q:"Explain the relationship between cost, production volume, revenue and profit. What does it help management determine?",
+    a: p("Profit planning depends on: <b>Cost → Production volume → Revenues → Profits</b>. It helps management determine:") +
+       ol(["The appropriate production level","The extent of machinery & equipment utilisation","The need for new production lines","Whether to discontinue some lines","Ways to cut costs while keeping quality"]) +
+       p('<span class="note">Management must also distinguish fixed from variable and direct from indirect costs.</span>') }
+  ]},
+  { name:"C · Productivity", qs:[
+  { q:"Define productivity. Does increasing production mean increasing productivity?", s:1,
+    a: def("Productivity measures <b>how efficiently inputs (factors of production) are used</b>.") + p("<b>No</b> – increasing production volume does not necessarily mean increasing productivity, because more output may come from using more inputs.") },
+  { q:"State the objectives of increasing productivity at the plant level and at the worker level.", s:1,
+    a: tb(["Plant level","Worker level"],[[
+      ol(["Better production management – full use of capacity","Better work environment & human relations","Scientific planning & worksite layout; upgraded machinery for smooth flow"]),
+      ol(["Better skills through training","Higher individual productivity via motion & time study","Better social welfare & working conditions","Higher morale through fair wages, incentives & bonuses","New job opportunities from growth"])]]) },
+  { q:"What are the two dimensions of productivity?",
+    a: ul(["<b>Quantitative:</b> output volume / quantity.","<b>Qualitative:</b> product quality."]) + p("Productivity must be increased <b>without sacrificing quality</b>.") },
+  { q:"Explain the methods of measuring labour productivity when a plant makes multiple products.", s:1,
+    a: ol(["<b>Conversion (equivalence) factor method:</b> different products are converted into one unified unit using equivalence factors; productivity = equivalent output ÷ total labour time.","<b>Monetary method:</b> monetary value (selling price) of units produced ÷ direct labour hours."]) },
+  { q:"List the methods for increasing productivity.", s:1,
+    a: ol(["Improving working conditions","Work simplification & eliminating unnecessary motions","Job evaluation","Employee training","Specialisation","Effective machinery maintenance","Incentive and reward systems","Enhancing human relations","Proper plant layout & material handling","Production cost control","Production planning and control","Product quality control"]) }
+  ]},
+  { name:"D · Work study & standard time", qs:[
+  { q:"Define work study and state its two branches.", s:1,
+    a: def("Work study aims at the <b>optimal utilisation of available human and material resources</b>.") +
+       ol(["<b>Motion study:</b> analysing work methods and eliminating unnecessary movements to simplify performance.","<b>Time measurement:</b> determining the time required to complete a job using the proposed method."]) },
+  { q:"State the benefits of work study.", s:1,
+    a: ol(["Improving workplace layout design","Optimal use of resources, machinery and labour","Enhancing working conditions","Establishing incentive and bonus systems","Simplifying operations and reducing worker exertion","Reducing physical strain","Developing planning and organisation of tasks","Controlling production operations and costs"]) },
+  { q:"Explain the eight steps of work study.", s:1,
+    a: ol(["<b>Select</b> the process to improve – especially with frequent bottlenecks, long material-handling distances, frequent breakdowns, or many accidents.",
+           "<b>Record</b> all facts (workers, materials, machines) using tables and charts.",
+           "<b>Examine</b> the process to find what can be eliminated, combined or simplified.",
+           "<b>Develop</b> a new, more efficient method.",
+           "<b>Define</b> (document) the implementation stages of the new method.",
+           "<b>Measure</b> the time required by the new method.",
+           "<b>Apply</b> – train workers, provide tools, assign supervision to an experienced worker.",
+           "<b>Maintain</b> (follow-up) – keep it efficient, correct deviations, adjust when needed."]) +
+       p('<span class="note">Memory hook: <b>S-R-E-D-D-M-A-M</b></span>') },
+  { q:"How is standard time determined? Define each term.", s:1,
+    a: def("<b>Observed time → Normal time → + Allowances → Standard time</b>") +
+       ol(["<b>Average observed time:</b> average of actual times measured by direct observation.","<b>Normal time:</b> time needed by a normal worker working at <b>100% efficiency</b>.","<b>Standard time:</b> normal time + allowance for personal needs, fatigue and unavoidable delays (usually <b>not more than 15%</b>)."]) },
+  { q:"State the five core concepts of Chapter 2 and the key question each answers.",
+    a: tb(["Concept","Key question"],[["Feasibility study","Is the project worth the investment?"],["Costs & break-even point","When will the project cover its costs?"],["Profit & production volume","What is the optimal production level?"],["Productivity","Are we using our resources efficiently?"],["Work study & time measurement","What is the best method, and how long should it take?"]]) +
+       def("<b>Ultimate goal:</b> optimal use of human, material and technological resources at the lowest cost, while keeping quality, achieving profit and meeting productivity targets.") }
+  ]}]},
+
+{ id:"ch3", tag:"Ch 3", color:"var(--c3)", title:"Administrative & Technological Organization", sub:"Organisational structures, production systems, production cycle and plant layouts",
+  groups:[
+  { name:"A · Administrative organization", qs:[
+  { q:"What is the aim of organizing an industrial facility, and how is it achieved?", s:1,
+    a: def("To <b>identify and coordinate the activities</b> needed to achieve the factory's objectives – avoiding duplicated work, clarifying responsibility and authority, and improving production efficiency.") +
+       p("<b>How:</b> by dividing activities into groups, assigning a supervisor to each group, and giving them the authority needed to complete their tasks.") },
+  { q:"List and explain the main steps in organizing an industrial facility.", s:1,
+    a: ol(["<b>Defining general objectives</b> – types and quantities of products and production targets.","<b>Planning and policies</b> – plans and policies to reach the objectives; choosing suitable processes and technology.","<b>Defining tasks and duties</b> – providing materials, machines, equipment, skilled workers, operating & maintenance schedules.","<b>Determining required functions</b> – and designing a suitable organisational structure.","<b>Grouping functions & assigning responsibilities</b> – related functions into departments, a supervisor for each.","<b>Delegation of authority</b> – giving managers and supervisors the authority they need."]) },
+  { q:"Define span of control. What does it depend on?", s:1,
+    a: def("Span of control is <b>the number of employees a manager can supervise effectively</b>.") +
+       p("It depends on:") + ol(["Type of work","Management level","Workers' experience","Task complexity","Use of technology and information systems"]) +
+       p('<span class="note">A wider span requires effective communication, monitoring and control systems.</span>') },
+  { q:"What is an organizational chart and what does it show?",
+    a: def("A <b>diagram that shows the organisational structure</b> of a factory.") + ol(["Management levels","Lines of authority and responsibility","Relationships between departments and units","Communication and coordination channels"]) },
+  { q:"Define line organization and state the responsibilities of the plant manager, supervisor and worker.", s:1,
+    a: def("The <b>simplest</b> structure, used in <b>small factories</b>. Authority flows from manager → supervisors → workers; each employee takes instructions from the immediate supervisor.") +
+       tb(["Plant manager","Supervisor","Worker"],[[
+         ul(["Sets general policies","Provides resources & services","Assigns general responsibilities","Monitors costs, finances & wages"]),
+         ul(["Decides how work is done","Assigns tasks to workers","Monitors production","Checks performance & instructions"]),
+         ul(["Performs assigned tasks","Follows instructions & procedures","Maintains quality & efficiency"])]]) },
+  { q:"State the advantages and disadvantages of line organization.", s:1,
+    a: tb(["Advantages","Disadvantages"],[
+      [ol(["Clear authority and responsibility","Easy communication between levels","Fast decision-making","Easy monitoring and control","Quick handling of problems & emergencies"]),
+       ol(["Not suitable for large factories","Authority concentrated in the manager – decisions delayed when absent","Heavy workload on the manager","Weak cooperation between groups"])]]) },
+  { q:"Define line-and-staff organization. State its advantages and disadvantages.", s:1,
+    a: def("Used in <b>medium-sized factories</b>: a line structure <b>plus consultants and experts</b> who give technical, financial and administrative advice to help the manager decide.") +
+       tb(["Advantages","Disadvantages"],[
+        [ol(["Faster problem-solving using expertise","Easier tasks by separating technical from administrative work","Managers' skills developed by expert advice","Better-quality decisions"]),
+         ol(["Decisions delayed by consulting experts","Manager's independence weakened by over-reliance on consultants","Manager may avoid responsibility by blaming experts"])]]) +
+       p('<span class="note">Works well only if powers and responsibilities are clearly defined.</span>') },
+  { q:"Define functional organization. State its advantages and disadvantages.", s:1,
+    a: def("Activities are <b>grouped by function</b> and assigned to <b>specialised departments</b>; used in <b>large factories</b> with many processes, products and activities.") +
+       tb(["Advantages","Disadvantages"],[[ol(["Achieves specialisation","Clearly defines responsibilities"]),ol(["Difficult communication & coordination","Difficult to make sound decisions quickly"])]]) },
+  { q:"Explain the three levels of management.", s:1,
+    a: ol(["<b>Top management</b> – general manager & assistants; broad authority; set overall policies and objectives.","<b>Middle management</b> – department heads, assistants, section managers; turn top decisions into detailed plans, pass them down, monitor implementation.","<b>First-line management</b> – foremen and supervisors; directly supervise workers and daily tasks."]) },
+  { q:"Compare line, line-and-staff and functional organization.",
+    a: tb(["Point","Line","Line-and-staff","Functional"],[["Factory size","Small","Medium","Large"],["Basis","Direct chain of command","Chain of command + experts","Grouping by function"],["Strength","Clear authority, fast decisions","Better decisions","Specialisation"],["Weakness","Overloaded manager","Slower decisions","Poor coordination"]]) }
+  ]},
+  { name:"B · Technological organization", qs:[
+  { q:"Define technological organization and state what it determines.", s:1,
+    a: def("The study of how to <b>arrange and sequence the stages and operations</b> needed to manufacture a good or group of goods.") +
+       ol(["Types of machinery and equipment needed","Number of machines required","Optimal machine locations in the plant layout","Optimal sequence of operations to minimise cycle time"]) },
+  { q:"What factors influence technological organization?", s:1,
+    a: ol(["Type of industry","Production volume (production system)","Nature and specifications of the product"]) },
+  { q:"Distinguish between extractive and manufacturing industries, and list the types of manufacturing industries.",
+    a: ul(["<b>Extractive:</b> extract raw materials from nature and separate impurities (e.g. iron ore, minerals).","<b>Manufacturing:</b> transform raw materials into final or intermediate products."]) +
+       tb(["Type","Description","Example"],[["Metal","Ores → metals & alloys, rolling","Metal sheets & plates"],["Engineering","Machining, forming, assembly","Automobiles, engines"],["Chemical","Chemical & physical processes","Oil refining, fertilisers, dyes"],["Textile","Fibres → yarn → weaving → finishing","Fabrics, garments"]]) },
+  { q:"Define continuous, job-order and repetitive production with characteristics and examples.", s:1,
+    a: ol(["<b>Continuous:</b> smooth continuous sequence, few changes. Large volumes of standard goods, limited variety, easy planning, fixed sequence. <i>Sugar, fertiliser.</i>",
+           "<b>Job-order (make-to-order):</b> made to customer specs. Low/custom volume, high skill, long cycle time, WIP build-up, hard planning & quality control. <i>Aircraft, ships, medical equipment.</i>",
+           "<b>Repetitive:</b> products made repeatedly by similar steps; mixes both. High repetition, precise planning, stage balancing, flexibility. <i>Cars, household appliances.</i>"]) },
+  { q:"Compare the three production systems.",
+    a: tb(["Criterion","Continuous","Job order","Repetitive"],[["Volume","High / large-scale","Low or customised","Repetitive, demand-based"],["Variety","Limited","High","Moderate / variable"],["Operations","Fixed & sequential","Vary per job","Repetitive & structured"],["Planning","Relatively simple","More complex","Precise coordination"],["Example","Fertiliser","Shipbuilding","Automobiles"]]) },
+  { q:"How do product characteristics affect technological organization? Give examples.", s:1,
+    a: ol(["<b>Size & weight</b> → handling, transport equipment, machine capacity.","<b>Dimensions & geometry</b> → machining and forming operations.","<b>Physical state</b> (hardness, fluidity, phase) → equipment and processing method.","<b>Chemical properties</b> (corrosiveness, reactivity) → construction materials of equipment.","<b>Material hazards</b> → special safety, storage and operating procedures."]) +
+       p("<b>Examples:</b> liquids → tanks, pipes, pumps; metal parts → cutting, forming, machining, heat treatment; acids → corrosion-resistant equipment.") }
+  ]},
+  { name:"C · Production cycle", qs:[
+  { q:"Define the production cycle, its significance and its components.", s:1,
+    a: def("The <b>total time from the entry of raw materials until they leave as finished goods</b>. Shortening it is a direct indicator of management efficiency in planning and organisation.") +
+       p("<b>T = T1 + T2</b>") + ul(["<b>T1 – Setup time:</b> preparing the machine at the start of each task.","<b>T2 – Machining / processing time:</b> actual time the machine works on the task."]) },
+  { q:"What is the time-utilisation efficiency indicator?",
+    a: p("The ratio <b>T / T2</b>. Optimal use of time when <b>T / T2 = 1</b>.") + p("A ratio <b>greater than 1</b> indicates poor organisation (too much setup or waiting time).") },
+  { q:"Explain the material movement methods used to reduce cycle time.", s:1,
+    a: tb(["Method","How it works","When used"],[["<b>Sequential</b>","Whole batch finished, then passed at once","Large goods, varied specs, very different stage times"],["<b>Parallel</b>","Each piece passed immediately when done","Similar size & specs, comparable stage times"],["<b>Combined (mixed)</b>","Passed in sub-batches to reduce idle time","Homogeneous specs but different stage times"]]) }
+  ]},
+  { name:"D · Plant layouts", qs:[
+  { q:"Explain the product (line) layout and its advantages.", s:1,
+    a: def("Used for <b>one product or a few similar items</b> (continuous / mass production). Machines are arranged in a <b>sequential line</b>: raw materials enter at the start, finished goods leave at the end.") +
+       ol(["Reduces processing and cycle times","Increases volume and lowers unit cost","Minimises floor space","Improves quality","Simplifies supervision","Reduces material handling between departments"]) },
+  { q:"Explain the functional (process) layout and its requirements.", s:1,
+    a: def("Used for <b>high product variety</b> (engineering / job-shop). <b>Similar machines are grouped into departments</b> – casting, forging & pressing, cutting, painting, etc.") +
+       ol(["General-purpose (non-specialised) machinery","Highly skilled, experienced labour"]) },
+  { q:"Explain the hybrid (combination) layout.",
+    a: p("Used in complex large-scale systems such as <b>automotive and electrical equipment</b> industries. It combines both: <b>product layout for manufacturing</b> and <b>functional layout for assembly</b> (or vice versa).") },
+  { q:"Explain the fixed-position layout.", s:1,
+    a: def("Used for project-based manufacture of very large products – <b>ships, aircraft, locomotives</b>. The product stays fixed because of its size; machines, equipment and workers are brought to it.") + p("Characteristic: <b>very high production costs</b>.") },
+  { q:"Compare product and functional layouts.",
+    a: tb(["Point","Product layout","Functional layout"],[["Variety","One / few similar products","High variety"],["Arrangement","In operation sequence","Similar machines grouped"],["Machines","Specialised","General-purpose"],["Labour","Less skill","Highly skilled"],["Production","Continuous / mass","Job shop"]]) },
+  { q:"What is the ultimate goal of administrative and technological organization?",
+    a: def("To achieve the best use of human, material and technological resources, improve production efficiency, reduce costs, clarify responsibilities and achieve the factory's objectives.") }
+  ]}]},
+
+{ id:"ch4", tag:"Ch 4", color:"var(--c4)", title:"Transportation & Assignment Models", sub:"Linear programming models for distribution and allocation",
+  groups:[
+  { name:"A · Transportation model", qs:[
+  { q:"Define the transportation model and state its objective.", s:1,
+    a: def("One of the most important <b>linear programming models</b> in industry. It moves goods from <b>supply sources to demand destinations</b> at the <b>minimum possible cost</b> (or shortest time), considering supply, demand and unit transport cost on each route.") },
+  { q:"Outline the historical development of transportation and assignment models.", s:1,
+    a: tb(["Year","Contribution"],[["1941","Hitchcock – distribution from many sources to many destinations"],["1947","Koopmans – optimal use of transportation systems"],["1951","Dantzig & others – optimal-solution methods"],["1954","Charnes & Cooper – MODI method"],["1955","Kuhn – solution of the Assignment Problem"],["1957","Ford & Fulkerson – developed the Assignment Problem"],["1958","Vogel – VAM"],["1963","Dantzig – Stepping-Stone method"],["1968","Russell – RAM"]]) },
+  { q:"Explain the basic concept of the transportation model with a simple example.",
+    a: p("Two factories supply three warehouses. Each factory has a fixed supply, each warehouse a fixed demand, and the unit cost differs on each route. <b>Required:</b> how much to send on each route so that all demand is met at <b>minimum total transportation cost</b>.") },
+  { q:"What is the main objective of the least-cost transportation problem?", s:1,
+    a: def("To determine the number of units transported from each source to each destination so that the <b>total transportation cost is minimised</b>.") },
+  { q:"List the methods for finding the Initial Basic Feasible Solution (IBFS) and those for the optimal solution.", s:1,
+    a: tb(["IBFS methods","Optimal-solution methods"],[[ol(["Northwest Corner","Least Cost","Vogel's Approximation (VAM)","Russell's Approximation (RAM)"]),ol(["Stepping-Stone","Modified Distribution (MODI) – Multipliers"])]]) },
+  { q:"What is a balanced and an unbalanced transportation problem? How is an unbalanced one handled?", s:1,
+    a: p("<b>Balanced:</b> total supply = total demand. <b>Unbalanced:</b> not equal.") +
+       ul(["Supply &gt; demand → add a <b>dummy destination</b> with demand = surplus and <b>zero cost</b> (e.g. supply 60, demand 45 → dummy city C5 with demand 15).","Demand &gt; supply → add a <b>dummy source</b> with supply = shortage and zero cost."]) },
+  { q:"Briefly explain how each IBFS method allocates.",
+    a: ol(["<b>Northwest Corner:</b> start at the top-left cell, allocate the maximum, move right/down; <i>ignores cost</i>.","<b>Least Cost:</b> allocate first to the lowest-cost cell, then the next lowest…","<b>VAM:</b> penalty = difference between the two lowest costs in each row/column; pick the largest penalty and allocate to its lowest-cost cell.","<b>RAM:</b> u<sub>i</sub> = largest cost in row i, v<sub>j</sub> = largest cost in column j; Δ<sub>ij</sub> = c<sub>ij</sub> − u<sub>i</sub> − v<sub>j</sub>; allocate to the <b>most negative Δ</b>, eliminate the satisfied row/column, repeat."]) },
+  { q:"Compare the IBFS methods in terms of quality. Which is best?", s:1,
+    a: tb(["Method","Total cost (lecture example)"],[["Northwest Corner","143"],["Least Cost","91"],["VAM","91"],["RAM","80 (= optimum)"]]) +
+       def("<b>RAM is generally the best method, followed by VAM.</b> Northwest Corner is worst because it ignores cost.") },
+  { q:"What condition must be satisfied before testing for optimality?", s:1,
+    a: def("Number of basic (occupied) cells = <b>m + n − 1</b> (m = sources/rows, n = destinations/columns).") + p("If fewer, the solution is <b>degenerate</b> and must be corrected before testing.") },
+  { q:"Explain the Stepping-Stone method: entering variable, closed loop and leaving variable.", s:1,
+    a: ol(["For each empty cell, build a <b>closed loop</b> through occupied cells and compute the net cost change.","<b>Entering variable:</b> the empty cell with the <b>most negative</b> value.","Signs alternate along the loop: <b>(+) → (−) → (+) → (−)</b>, starting with + at the entering cell.","<b>Leaving variable:</b> among (−) cells, the one with the <b>smallest quantity</b>; shift that quantity around the loop.","Repeat until no negative values remain → <b>optimal</b>."]) },
+  { q:"Explain the MODI (Multipliers) method briefly.",
+    a: ol(["For each occupied cell: u<sub>i</sub> + v<sub>j</sub> = c<sub>ij</sub> (set u<sub>1</sub> = 0) → find all u and v.","For each empty cell compute c<sub>ij</sub> − u<sub>i</sub> − v<sub>j</sub>.","All ≥ 0 → optimal; otherwise the most negative cell enters and the loop is adjusted as in Stepping-Stone."]) },
+  { q:"When is a transportation solution optimal?",
+    a: def("When there are <b>no negative values</b> among the c<sub>ij</sub> (opportunity cost) values of the empty cells.") }
+  ]},
+  { name:"B · Assignment model", qs:[
+  { q:"Define the assignment model and state its objective.", s:1,
+    a: def("A <b>special case of the transportation problem</b> in which a group of <b>jobs</b> is assigned to a group of <b>machines</b>, choosing the most suitable resource for each job.") +
+       p("Resources may differ in <b>cost, time, profit or efficiency</b>. <b>Objective:</b> minimum cost/time or maximum profit/efficiency.") },
+  { q:"What is the main solution method, and what is its basic condition?", s:1,
+    a: p("<b>The Hungarian Method.</b>") + def("Basic condition: the matrix must be <b>balanced, n = m</b> (jobs = machines).") },
+  { q:"How is an unbalanced assignment matrix balanced?", s:1,
+    a: ul(["n &gt; m (more jobs) → add <b>(n − m) dummy machines</b>.","n &lt; m (more machines) → add <b>(m − n) dummy jobs</b>."]) + p("Dummy rows/columns have <b>zero</b> cost, time or profit.") },
+  { q:"List the steps of the Hungarian method (minimisation).", s:1,
+    a: ol(["Balance the matrix if needed.","Subtract the smallest value in each <b>row</b> from that row.","Subtract the smallest value in each <b>column</b> from that column.","Cover all zeros with the <b>minimum number of lines</b>.","If lines = n → optimal (go to step 7).","Else subtract the smallest <b>uncovered</b> value from uncovered elements and <b>add it at intersections</b>; return to step 4.","Assign one zero per row and per column."]) },
+  { q:"How is a maximisation (profit) assignment problem solved?", s:1,
+    a: def("Convert to minimisation by <b>subtracting every element from the largest value</b> in the matrix, then apply the Hungarian method.") + p("Total profit is computed from the <b>original</b> profit values.") },
+  { q:"What does it mean if a machine remains unassigned or there are several optimal assignments?",
+    a: ul(["An <b>unassigned machine</b> is one matched to a dummy job (lecture example: Machine 3, total cost 22).","Several zeros allowing different complete assignments → <b>alternative optimal solutions</b> with the same total (lecture example: four optimal assignments, max profit 22)."]) }
+  ]}]}
+];
+
+const FILL = [
+ ["The Industrial Revolution began with James Watt's steam engine in …","1775"],
+ ["The principle of division of labour was advocated by …","Adam Smith (1776)"],
+ ["<i>Principles of Scientific Management</i> was published by …","F. W. Taylor (1911)"],
+ ["Gilbreth divided work into … fundamental motions called …","17 · Therbligs"],
+ ["A project is feasible if profitability > … and payback < …","25% · 4 years"],
+ ["Net value added = Gross value added − …","Depreciation"],
+ ["At the break-even point, total revenue = …","Total cost"],
+ ["Allowances added to normal time usually do not exceed …","15%"],
+ ["Production cycle time T = …","T1 (setup) + T2 (processing)"],
+ ["Ideal time utilisation is when T / T2 = …","1"],
+ ["Line organisation suits … factories","Small"],
+ ["Line-and-staff organisation suits … factories","Medium"],
+ ["Functional organisation suits … factories","Large"],
+ ["Number of basic cells in a transportation solution = …","m + n − 1"],
+ ["The assignment problem is solved by the … method","Hungarian"],
+ ["The assignment matrix must satisfy …","n = m"],
+ ["VAM was proposed by Vogel in …; RAM by Russell in …","1958 · 1968"],
+ ["MODI was proposed by … in 1954","Charnes & Cooper"]
+];
+const TF = [
+ ["Increasing production volume always means increasing productivity.",false,"More output may come from more inputs."],
+ ["Fixed costs change directly with production volume.",false,"Variable costs do; fixed costs do not."],
+ ["Plant rent is an indirect cost.",true,"It is shared by several products."],
+ ["Break-even analysis assumes selling prices are constant.",true,"This is one of its limitations."],
+ ["Fixed-position layout has low production costs.",false,"It has very high production costs."],
+ ["Functional (process) layout uses specialised machines and unskilled labour.",false,"It uses general-purpose machines and highly skilled labour."],
+ ["Parallel movement is used for goods of similar size with comparable stage times.",true,"Each piece is passed on immediately."],
+ ["Northwest Corner usually gives the cheapest initial solution.",false,"It ignores cost; RAM is generally best."],
+ ["The assignment model is a special case of the transportation model.",true,"Jobs = sources, machines = destinations."],
+ ["Dummy rows and columns have zero cost.",true,"They balance the matrix without changing the total."],
+ ["Henri Fayol developed the Gantt chart.",false,"Henry Gantt (1913); Fayol defined the five management functions (1916)."],
+ ["Shipbuilding is an example of continuous production.",false,"It is job-order production; fertiliser is continuous."]
+];
+
+/* ---------- STATE ---------- */
+let store = {};
+try { store = JSON.parse(localStorage.getItem("em-bank") || "{}"); } catch(e) { store = {}; }
+const save = () => { try { localStorage.setItem("em-bank", JSON.stringify(store)); } catch(e) {} };
+let filter = "all", allOpen = false;
+const ALLQ = [];
+
+/* ---------- RENDER ---------- */
+const content = document.getElementById("content"), nav = document.getElementById("nav");
+const chev = '<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 9 6 6 6-6"/></svg>';
+
+CH.forEach(ch => {
+  let n = 0, html = `<section class="chapter" id="${ch.id}" style="--accent:${ch.color}">
+    <div class="ch-head"><span class="ch-badge" style="background:${ch.color}">${ch.tag}</span><h2>${ch.title}</h2></div>
+    <p class="ch-sub">${ch.sub}</p>`;
+  ch.groups.forEach(g => {
+    if (g.name) html += `<div class="sub-title">${g.name}</div>`;
+    g.qs.forEach(item => {
+      n++;
+      const key = ch.id + "-" + n;
+      ALLQ.push({ key, ch, n, item });
+      html += `<article class="card${store[key] ? " done" : ""}" data-key="${key}" data-star="${item.s ? 1 : 0}">
+        <div class="q"><span class="qn">Q${n}</span><div class="qt">${item.q}${item.s ? '<span class="star" title="High priority">★</span>' : ""}</div>${chev}</div>
+        <div class="a">${item.a}<div class="a-foot"><button class="btn know">${store[key] ? "✓ Mastered" : "I know it"}</button></div></div>
+      </article>`;
+    });
+  });
+  html += "</section>";
+  content.insertAdjacentHTML("beforeend", html);
+  nav.insertAdjacentHTML("beforeend", `<button data-go="${ch.id}"><span class="dot" style="background:${ch.color}"></span>${ch.tag} · ${ch.title.split(" ").slice(0,3).join(" ")}<span class="count">${n}</span></button>`);
+});
+
+/* drills */
+let drill = `<section class="chapter" id="drills" style="--accent:var(--c5)">
+  <div class="ch-head"><span class="ch-badge" style="background:var(--c5)">Drills</span><h2>Quick Drills</h2></div>
+  <p class="ch-sub">Test yourself fast. Score: <span class="score" id="tfScore">0 / ${TF.length}</span></p>
+  <div class="sub-title">True or False</div>`;
+TF.forEach((t, i) => {
+  drill += `<div class="quiz" data-i="${i}"><div class="stmt">${i + 1}. ${t[0]}</div>
+    <div class="opts"><button class="btn" data-v="1">True</button><button class="btn" data-v="0">False</button></div>
+    <div class="fb"></div></div>`;
+});
+drill += `<div class="sub-title">Fill in the blank</div><div class="quiz" style="padding:0">`;
+FILL.forEach((f, i) => {
+  drill += `<div class="fill-row"><span class="qn" style="color:var(--c5)">${i + 1}</span><span>${f[0]}</span><span><button class="btn know reveal">Reveal</button><span class="fill-ans">${f[1]}</span></span></div>`;
+});
+drill += `</div></section>`;
+content.insertAdjacentHTML("beforeend", drill);
+nav.insertAdjacentHTML("beforeend", `<button data-go="drills"><span class="dot" style="background:var(--c5)"></span>Quick Drills<span class="count">${TF.length + FILL.length}</span></button>`);
+
+document.getElementById("totalQ").textContent = ALLQ.length;
+document.getElementById("starQ").textContent = ALLQ.filter(x => x.item.s).length;
+
+/* ---------- INTERACTION ---------- */
+function updateProgress() {
+  const done = ALLQ.filter(x => store[x.key]).length;
+  document.getElementById("progTxt").textContent = `${done} / ${ALLQ.length} mastered`;
+  document.getElementById("progBar").style.width = (done / ALLQ.length * 100) + "%";
+}
+updateProgress();
+
+content.addEventListener("click", e => {
+  const card = e.target.closest(".card");
+  if (card) {
+    if (e.target.closest(".know")) {
+      const k = card.dataset.key;
+      store[k] = !store[k]; if (!store[k]) delete store[k]; save();
+      card.classList.toggle("done", !!store[k]);
+      card.querySelector(".a-foot .know").textContent = store[k] ? "✓ Mastered" : "I know it";
+      updateProgress(); applyFilter(); return;
+    }
+    if (e.target.closest(".q")) card.classList.toggle("open");
+    return;
+  }
+  const tfBtn = e.target.closest(".quiz[data-i] .opts .btn");
+  if (tfBtn) {
+    const box = tfBtn.closest(".quiz"), t = TF[box.dataset.i], fb = box.querySelector(".fb");
+    if (box.dataset.answered) return;
+    box.dataset.answered = 1;
+    const ok = (tfBtn.dataset.v === "1") === t[1];
+    box.dataset.ok = ok ? 1 : 0;
+    tfBtn.classList.add("on");
+    fb.className = "fb " + (ok ? "right" : "wrong");
+    fb.innerHTML = (ok ? "✓ Correct. " : "✗ Not quite. ") + "<b>" + (t[1] ? "True" : "False") + "</b> – " + t[2];
+    document.getElementById("tfScore").textContent = document.querySelectorAll('.quiz[data-ok="1"]').length + " / " + TF.length;
+    return;
+  }
+  const rev = e.target.closest(".reveal");
+  if (rev) rev.closest(".fill-row").classList.add("show");
+});
+
+nav.addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  document.getElementById(b.dataset.go).scrollIntoView({ behavior: "smooth" });
+});
+
+/* active nav on scroll */
+const secs = [...document.querySelectorAll(".chapter")];
+const io = new IntersectionObserver(es => {
+  es.forEach(en => { if (en.isIntersecting) {
+    nav.querySelectorAll("button").forEach(b => b.classList.toggle("active", b.dataset.go === en.target.id));
+  }});
+}, { rootMargin: "-40% 0px -55% 0px" });
+secs.forEach(s => io.observe(s));
+
+/* filters + search */
+document.querySelectorAll("[data-f]").forEach(b => b.addEventListener("click", () => {
+  document.querySelectorAll("[data-f]").forEach(x => x.classList.remove("on"));
+  b.classList.add("on"); filter = b.dataset.f; applyFilter();
+}));
+const qInput = document.getElementById("q");
+qInput.addEventListener("input", applyFilter);
+
+function stripMarks(el) { el.querySelectorAll("mark").forEach(m => m.replaceWith(document.createTextNode(m.textContent))); el.normalize(); }
+function markText(el, term) {
+  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+  const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+  const re = new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi");
+  nodes.forEach(n => {
+    if (!re.test(n.nodeValue)) return; re.lastIndex = 0;
+    const span = document.createElement("span");
+    span.innerHTML = n.nodeValue.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(re, m => "<mark>" + m + "</mark>");
+    n.replaceWith(...span.childNodes);
+  });
+}
+function applyFilter() {
+  const term = qInput.value.trim().toLowerCase();
+  let shown = 0;
+  document.querySelectorAll(".card").forEach(c => {
+    stripMarks(c);
+    let ok = true;
+    if (filter === "star" && c.dataset.star !== "1") ok = false;
+    if (filter === "todo" && c.classList.contains("done")) ok = false;
+    if (term && !c.textContent.toLowerCase().includes(term)) ok = false;
+    c.classList.toggle("hidden", !ok);
+    if (ok) { shown++; if (term) { markText(c, term); c.classList.add("open"); } }
+  });
+  document.querySelectorAll(".chapter").forEach(s => {
+    if (s.id === "drills") { s.classList.toggle("hidden", !!term || filter !== "all"); return; }
+    s.classList.toggle("hidden", !s.querySelector(".card:not(.hidden)"));
+    s.querySelectorAll(".sub-title").forEach(st => {
+      let el = st.nextElementSibling, any = false;
+      while (el && el.classList.contains("card")) { if (!el.classList.contains("hidden")) any = true; el = el.nextElementSibling; }
+      st.classList.toggle("hidden", !any);
+    });
+  });
+  document.getElementById("noRes").classList.toggle("hidden", shown > 0);
+}
+
+/* expand all */
+const expBtn = document.getElementById("expandAll");
+expBtn.addEventListener("click", () => {
+  allOpen = !allOpen;
+  document.querySelectorAll(".card").forEach(c => c.classList.toggle("open", allOpen));
+  expBtn.innerHTML = allOpen ? "🙈 Hide all" : "👁 Show all";
+  expBtn.classList.toggle("on", allOpen);
+});
+
+/* theme */
+const themeBtn = document.getElementById("themeBtn");
+let theme = "light"; try { theme = localStorage.getItem("em-theme") || "light"; } catch(e) {}
+const setTheme = t => { document.documentElement.dataset.theme = t; themeBtn.textContent = t === "dark" ? "☀️" : "🌙"; try { localStorage.setItem("em-theme", t); } catch(e) {} };
+setTheme(theme);
+themeBtn.addEventListener("click", () => setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark"));
+
+/* reset */
+document.getElementById("resetBtn").addEventListener("click", () => {
+  store = {}; save();
+  document.querySelectorAll(".card").forEach(c => { c.classList.remove("done"); c.querySelector(".a-foot .know").textContent = "I know it"; });
+  updateProgress(); applyFilter();
+});
+
+/* random modal */
+const modal = document.getElementById("modal"), mQ = document.getElementById("mQ"), mA = document.getElementById("mA"), mMeta = document.getElementById("mMeta"), mShow = document.getElementById("mShow");
+function randomQ() {
+  const pool = ALLQ.filter(x => !store[x.key]); const src = pool.length ? pool : ALLQ;
+  const r = src[Math.floor(Math.random() * src.length)];
+  mMeta.innerHTML = `<span class="ch-badge" style="background:${r.ch.color};padding:2px 8px">${r.ch.tag}</span> &nbsp;Q${r.n}${r.item.s ? ' <span class="star">★</span>' : ""}`;
+  mQ.innerHTML = r.item.q; mA.innerHTML = r.item.a; mA.classList.remove("show"); mShow.textContent = "Show answer";
+  modal.classList.add("show");
+}
+document.getElementById("randomBtn").addEventListener("click", randomQ);
+document.getElementById("mNext").addEventListener("click", randomQ);
+mShow.addEventListener("click", () => { const s = mA.classList.toggle("show"); mShow.textContent = s ? "Hide answer" : "Show answer"; });
+document.getElementById("mClose").addEventListener("click", () => modal.classList.remove("show"));
+modal.addEventListener("click", e => { if (e.target === modal) modal.classList.remove("show"); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") modal.classList.remove("show"); });
+
+/* back to top */
+const toTop = document.getElementById("toTop");
+window.addEventListener("scroll", () => toTop.classList.toggle("show", scrollY > 600));
+toTop.addEventListener("click", () => scrollTo({ top: 0, behavior: "smooth" }));
+</script>
+</body>
+</html>
